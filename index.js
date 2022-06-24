@@ -1,24 +1,26 @@
 import express from 'express';
 // import cors from 'cors';
-import mongoose from 'mongoose';
-import contactRoute from './routes/contact.js';
+// import mongoose from 'mongoose';
+// import contactRoute from './routes/contact.js';
 
 
-const url = "mongodb+srv://mydevmate:mypassword@cluster0.wryxr.mongodb.net/?retryWrites=true&w=majority";
+// const url = "mongodb+srv://mydevmate:mypassword@cluster0.wryxr.mongodb.net/?retryWrites=true&w=majority";
 const port = 3000;
 
 
 const app = express();
 // app.use(cors());
-app.use(express.json({limit:"10MB"}));
-app.use('/contact',contactRoute);
+// app.use(express.json({limit:"10MB"}));
+// app.use('/contact',contactRoute);
 
-
-mongoose.connect(url,{
-    useNewUrlParser:true,useUnifiedTopology:true
-}).then(()=>{
-    console.log("conection stableshed with data hamza")
-}).catch((err)=> console.log(err));
+app.get('/',(req,res)=>{
+    res.send('fuck');
+})
+// mongoose.connect(url,{
+//     useNewUrlParser:true,useUnifiedTopology:true
+// }).then(()=>{
+//     console.log("conection stableshed with data hamza")
+// }).catch((err)=> console.log(err));
 
 
 app.listen(port,()=> console.log(`server on listening from ${port}`))
